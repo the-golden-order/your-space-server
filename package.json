@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/the-golden-order/your-space-server#readme",
   "dependencies": {
+    "auth0": "^2.40.0",
     "axios": "^0.26.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
