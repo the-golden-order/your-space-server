@@ -5,8 +5,7 @@ const axios = require("axios");
 async function getItunes(request, response) {
   try {
     let term = request.query.term;
-    // let url = `https://api.themoviedb.org/3/search/movie?api_key=${process.env.MOVIE_API_KEY}&query=${city}&page=1`; //TODO change seattle to ${searchQueryCity}// HIDE API KEY
-    let url = `https://itunes.apple.com/search?term=${term}&limit=10`; //TODO change seattle to ${searchQueryCity}// HIDE API KEY
+    let url = `https://itunes.apple.com/search?term=${term}&limit=10`;
 
     let songSearch = await axios.get(url);
     let songData = [];
@@ -20,15 +19,19 @@ async function getItunes(request, response) {
   }
 }
 
-// Class for map function
+// Classes for map function
 class Song {
   constructor(element) {
     // this.whatever = element.valueName
     this.artistName = element.artistName
     this.trackName = element.trackName
     this.artWork = element.artworkUrl100
-    this.Genre = element.primaryGenreName
+    this.genre = element.primaryGenreName
+    this.albumName = element.collectionName
 
+    // this.songUrl = element.trackViewUrl
+    // this.previewUrl = element.previewUrl
+    
   }
 }
 
