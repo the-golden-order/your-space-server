@@ -1,0 +1,28 @@
+{
+  "name": "your-space-server",
+  "version": "1.0.0",
+  "description": "## Team Members",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-golden-order/your-space-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/the-golden-order/your-space-server/issues"
+  },
+  "homepage": "https://github.com/the-golden-order/your-space-server#readme",
+  "dependencies": {
+    "axios": "^0.26.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "mongoose": "^6.2.9",
+    "nodemon": "^2.0.15"
+  }
+}

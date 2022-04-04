@@ -1,4 +1,4 @@
-# The Golden Orders Your Space backend app.
+# The Golden Orders Your Space backend app
 
 ## Team Members 
 * Thomas Basham
@@ -14,3 +14,4 @@ Your Space A portfolio website that allows you to search for music and showcase 
 The songs/albums can be saved to your profile page. 
 
 Stretch Goals: Add Games and Movies to the things that a user can save to their profile. 
+
