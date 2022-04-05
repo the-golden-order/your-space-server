@@ -4,6 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const verifyUser = require('./auth');
 
 mongoose.connect(process.env.DB_URL);
 
@@ -21,12 +22,15 @@ app.use(express.json());
 const getItunes = require("./modules/Itunes");
 const deleteMusic = require("./modules/deleteMusic");
 const updateMusic = require("./modules/updateMusic");
-// const addMusic = require('./modules/addMusic');
+const getMusic = require('./modules/getMusic');
+const addMusic = require('./modules/addMusic');
 
 // GET ROUTES FROM MODULES
 app.get("/Itunes", getItunes);
-app.delete("/Itunes/:id", deleteMusic);
-app.put("/Itunes/:id", updateMusic);
+app.delete("/music/:id", deleteMusic);
+app.put("/music/:id", updateMusic);
+app.get("/music", getMusic);
+app.post("/music", addMusic);
 // ROUTE TO GET MONGODATA
 // app.get("/Itunes", addMusic)
 
