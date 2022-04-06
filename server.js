@@ -27,12 +27,11 @@ const addMusic = require('./modules/addMusic');
 
 // GET ROUTES FROM MODULES
 app.get("/Itunes", getItunes);
+// ROUTE TO GET MONGODATA
 app.delete("/music/:id", deleteMusic);
 app.put("/music/:id", updateMusic);
 app.get("/music", getMusic);
 app.post("/music", addMusic);
-// ROUTE TO GET MONGODATA
-// app.get("/Itunes", addMusic)
 
 app.get("/", (req, res) => {
   res.send("welcome to your space");
