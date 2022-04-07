@@ -7,10 +7,6 @@ const verifyUser = require('../auth');
 
 async function addMusic(req, res) {
   verifyUser(req, async (err, user) => {
-    if (err) {
-      console.error(err);
-      res.send('invalid token');
-   } else {
       try {
         const musicQuery = {};
         if(user.email){
@@ -22,7 +18,6 @@ async function addMusic(req, res) {
         console.log(error.message);
         res.status(500).send(error.message);
       }
-    }
   });
 }
 
