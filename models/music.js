@@ -11,7 +11,8 @@ const musicSchema = new Schema({
     artWork : {type: String},
     genre : {type: String},
     note : {type: String},
-    email : {type: String}
+    email : {type: String},
+    previewUrl: {type: String}
 
   })
 

@@ -28,9 +28,10 @@ class Song {
     this.artWork = element.artworkUrl100
     this.genre = element.primaryGenreName
     this.albumName = element.collectionName
+    this.previewUrl = element.previewUrl
+    
+    //this.trackUrl = element.trackViewUrl
 
-    // this.songUrl = element.trackViewUrl
-    // this.previewUrl = element.previewUrl
     
   }
 }
