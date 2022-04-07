@@ -9,15 +9,14 @@ app.use(express.json());
 
 
 async function addMusic(req, res) {
-      try {
-        let addedSong = await musicSchema.create(req.body);
-        res.status(201).send(addedSong);
-      } catch (error) {
-        console.log(error.message);
-        res.status(500).send(error.message);
-      }
-  };
-
+  try {
+    let addedSong = await musicSchema.create(req.body);
+    res.status(201).send(addedSong);
+  } catch (error) {
+    console.log(error.message);
+    res.status(500).send(error.message);
+  }
+};
 
 
 module.exports = addMusic;
