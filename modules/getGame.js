@@ -1,11 +1,13 @@
-'use strict';
-
-const mongoose = require('mongoose');
-mongoose.connect(process.env.DB_URL);
-const musicSchema = require('../models/music');
+"use strict";
 const verifyUser = require('../auth');
 
-async function addMusic(req, res) {
+
+const mongoose = require("mongoose");
+mongoose.connect(process.env.DB_GAME_URL);
+const musicSchema = require("../models/music");
+
+
+async function getMusic(req, res) {
   verifyUser(req, async (err, user) => {
     if (err) {
       console.error(err);
@@ -13,11 +15,11 @@ async function addMusic(req, res) {
    } else {
       try {
         const musicQuery = {};
-        if(user.email){
+        if (user.email){
           musicQuery.email = user.email;
         }
-        let addedSong = await musicSchema.create(req.body);
-        res.status(201).send(addedSong);
+        let results = await musicSchema.find();
+        res.status(200).send(results);
       } catch (error) {
         console.log(error.message);
         res.status(500).send(error.message);
@@ -26,4 +28,4 @@ async function addMusic(req, res) {
   });
 }
 
-module.exports = addMusic;
+module.exports = getMusic;
