@@ -2,10 +2,10 @@
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_GAME_URL);
-const SearchedSong = require('../models/music');
+const SearchedGame = require('../models/game');
 const verifyUser = require('../auth');
 
-async function deleteMusic(req, res, next) {
+async function deleteGame(req, res, next) {
   let id = req.params.id;
   verifyUser(req, async (err, user) => {
     if (err) {
@@ -13,11 +13,11 @@ async function deleteMusic(req, res, next) {
       res.send('invalid token');
     } else {
       try {
-        const musicQuery = {};
+        const gameQuery = {};
         if (user.email) {
-          musicQuery.email = user.email;
+          gameQuery.email = user.email;
         }
-        await SearchedSong.findByIdAndDelete(id);
+        await SearchedGame.findByIdAndDelete(id);
         res.status(204).send("Entry Deleted");
       } catch (error) {
         next(error);
@@ -26,4 +26,4 @@ async function deleteMusic(req, res, next) {
   });
   }
 
-module.exports = deleteMusic;
+module.exports = deleteGame;

@@ -6,15 +6,15 @@ app.use(express.json());
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_GAME_URL);
-const SearchedSong = require('../models/music');
+const SearchedGame = require('../models/game');
 
-async function updateMusic(req, res, next) {
+async function updateGame(req, res, next) {
   let id = req.params.id;
   try{
-    let updateMusic = await SearchedSong.findByIdAndUpdate(id, req.body, {new: true, overwrite: true});
-    res.status(200).send(updateMusic);
+    let updateGame = await SearchedGame.findByIdAndUpdate(id, req.body, {new: true, overwrite: true});
+    res.status(200).send(updateGame);
   }catch (error){
     next(error);
   }
 }
-module.exports = updateMusic;
+module.exports = updateGame;
