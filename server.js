@@ -24,6 +24,12 @@ const deleteMusic = require("./modules/deleteMusic");
 const updateMusic = require("./modules/updateMusic");
 const getMusic = require('./modules/getMusic');
 const addMusic = require('./modules/addMusic');
+// REQUIRE MODULES GAMES
+const getGameAPI = require("./modules/gameAPI");
+const deleteGame = require("./modules/deleteGame");
+const updateGame = require("./modules/updateGame");
+const getGame = require('./modules/getGame');
+const addGame = require('./modules/addGame');
 
 // GET ROUTES FROM MODULES
 app.get("/Itunes", getItunes);
@@ -32,6 +38,14 @@ app.delete("/music/:id", deleteMusic);
 app.put("/music/:id", updateMusic);
 app.get("/music", getMusic);
 app.post("/music", addMusic);
+//GET ROUTE FOR Game API
+app.get("/GameAPI", getGameAPI);
+//ROUTE TO GET GAME MONGODATA
+app.delete("/game/:id", deleteGame);
+app.put("/game/:id", updateGame);
+app.get("/game", getGame);
+app.post("/game", addGame);
+
 
 app.get("/", (req, res) => {
   res.send("welcome to your space");
