@@ -2,22 +2,22 @@
 
 const mongoose = require('mongoose');
 mongoose.connect(process.env.DB_GAME_URL);
-const musicSchema = require('../models/music');
+const gameSchema = require('../models/game');
 const verifyUser = require('../auth');
 
-async function addMusic(req, res) {
+async function addGame(req, res) {
   verifyUser(req, async (err, user) => {
     if (err) {
       console.error(err);
       res.send('invalid token');
    } else {
       try {
-        const musicQuery = {};
+        const gameQuery = {};
         if(user.email){
-          musicQuery.email = user.email;
+          gameQuery.email = user.email;
         }
-        let addedSong = await musicSchema.create(req.body);
-        res.status(201).send(addedSong);
+        let addedGame = await gameSchema.create(req.body);
+        res.status(201).send(addedGame);
       } catch (error) {
         console.log(error.message);
         res.status(500).send(error.message);
@@ -26,4 +26,4 @@ async function addMusic(req, res) {
   });
 }
 
-module.exports = addMusic;
+module.exports = addGame;

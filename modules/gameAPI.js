@@ -2,7 +2,7 @@
 const axios = require("axios");
 
 // Get data from API URL
-async function getSteam(request, response) {
+async function getGame(request, response) {
   try {
     let term = request.query.term;
     let url = `${term}`;

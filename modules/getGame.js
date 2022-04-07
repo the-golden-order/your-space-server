@@ -4,21 +4,21 @@ const verifyUser = require('../auth');
 
 const mongoose = require("mongoose");
 mongoose.connect(process.env.DB_GAME_URL);
-const musicSchema = require("../models/music");
+const gameSchema = require("../models/game");
 
 
-async function getMusic(req, res) {
+async function getGame(req, res) {
   verifyUser(req, async (err, user) => {
     if (err) {
       console.error(err);
       res.send('invalid token');
    } else {
       try {
-        const musicQuery = {};
+        const gameQuery = {};
         if (user.email){
-          musicQuery.email = user.email;
+          gameQuery.email = user.email;
         }
-        let results = await musicSchema.find();
+        let results = await gameSchema.find();
         res.status(200).send(results);
       } catch (error) {
         console.log(error.message);
@@ -28,4 +28,4 @@ async function getMusic(req, res) {
   });
 }
 
-module.exports = getMusic;
+module.exports = getGame;
