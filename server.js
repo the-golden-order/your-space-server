@@ -4,7 +4,7 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const verifyUser = require('./auth');
+//const verifyUser = require('./auth');
 
 mongoose.connect(process.env.DB_URL);
 
@@ -24,6 +24,7 @@ const deleteMusic = require("./modules/deleteMusic");
 const updateMusic = require("./modules/updateMusic");
 const getMusic = require('./modules/getMusic');
 const addMusic = require('./modules/addMusic');
+
 // REQUIRE MODULES GAMES
 // const getGameAPI = require("./modules/gameAPI");
 // const deleteGame = require("./modules/deleteGame");
@@ -33,13 +34,16 @@ const addMusic = require('./modules/addMusic');
 
 // GET ROUTES FROM MODULES
 app.get("/Itunes", getItunes);
+
 // ROUTE TO GET MONGODATA
 app.delete("/music/:id", deleteMusic);
 app.put("/music/:id", updateMusic);
 app.get("/music", getMusic);
 app.post("/music", addMusic);
+
 //GET ROUTE FOR Game API
 // app.get("/GameAPI", getGameAPI);
+
 //ROUTE TO GET GAME MONGODATA
 // app.delete("/game/:id", deleteGame);
 // app.put("/game/:id", updateGame);
