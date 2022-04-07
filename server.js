@@ -24,17 +24,29 @@ const deleteMusic = require("./modules/deleteMusic");
 const updateMusic = require("./modules/updateMusic");
 const getMusic = require('./modules/getMusic');
 const addMusic = require('./modules/addMusic');
+const { resetWatchers } = require("nodemon/lib/monitor/watch");
 // REQUIRE MODULES GAMES
 // const getGameAPI = require("./modules/gameAPI");
 // const deleteGame = require("./modules/deleteGame");
 // const updateGame = require("./modules/updateGame");
 // const getGame = require('./modules/getGame');
 // const addGame = require('./modules/addGame');
+// async function deleteMusic (req, res, next) {
+//   let id= req.params.id;
+//   try {
+//     console.log(id);
+//     await Music.findByIdAndDelete(id);
+//     res.send('this song was deleted');
+//   } catch (error) {
+//     next (error);
+//   }
+// }
 
 // GET ROUTES FROM MODULES
 app.get("/Itunes", getItunes);
 // ROUTE TO GET MONGODATA
 app.delete("/music/:id", deleteMusic);
+// added delete function to line 34.
 app.put("/music/:id", updateMusic);
 app.get("/music", getMusic);
 app.post("/music", addMusic);
@@ -66,3 +78,4 @@ app.use((error, req, res) => {
 const PORT = process.env.PORT || 3002;
 
 app.listen(PORT, () => console.log(`Server is serving on port ${PORT}`));
+
