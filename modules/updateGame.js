@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DB_GAME_URL);
+mongoose.connect(process.env.DB_URL);
 const SearchedGame = require('../models/game');
 
 async function updateGame(req, res, next) {

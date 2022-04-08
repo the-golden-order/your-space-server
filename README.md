@@ -15,3 +15,7 @@ The songs/albums can be saved to your profile page.
 
 Stretch Goals: Add Games and Movies to the things that a user can save to their profile. 
 
+## Credits
+Games API : https://www.freetogame.com/api-doc
+Itunes API : https://affiliate.itunes.apple.com/resources/documentation/itunes-store-web-service-search-api/
+
