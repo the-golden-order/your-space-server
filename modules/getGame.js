@@ -3,7 +3,7 @@ const verifyUser = require('../auth');
 
 
 const mongoose = require("mongoose");
-mongoose.connect(process.env.DB_GAME_URL);
+mongoose.connect(process.env.DB_URL);
 const gameSchema = require("../models/game");
 
 

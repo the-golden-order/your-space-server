@@ -5,8 +5,7 @@ const axios = require("axios");
 async function getItunes(request, response) {
   try {
     let term = request.query.term;
-    let url = `https://itunes.apple.com/search?term=${term}&limit=10`;
-
+    let url = `https://itunes.apple.com/search?term=${term}&limit=30`;
     let songSearch = await axios.get(url);
     let songData = [];
     songSearch.data.results.forEach((element) => {

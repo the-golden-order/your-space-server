@@ -4,12 +4,10 @@ const axios = require("axios");
 // Get data from API URL
 async function getGameAPI(request, response) {
   try {
-    let term = request.query.term;
-    let url = `${term}`;
-
+    let url = `https://www.freetogame.com/api/games?platform=browser`;
     let gameSearch = await axios.get(url);
     let gameData = [];
-    gameSearch.data.results.forEach((element) => {
+    gameSearch.data.forEach((element) => {
       let selectedGame = new Game(element);
       gameData.push(selectedGame);
     });
@@ -19,19 +17,15 @@ async function getGameAPI(request, response) {
   }
 }
 
-// Classes for map function
+
 class Game {
   constructor(element) {
-    // this.whatever = element.valueName
-    this.artistName = element.artistName
-    this.trackName = element.trackName
-    this.artWork = element.artworkUrl100
-    this.genre = element.primaryGenreName
-    this.albumName = element.collectionName
-
-    // this.songUrl = element.trackViewUrl
-    // this.previewUrl = element.previewUrl
-    
+    this.title = element.title, 
+    this.description = element.short_description, 
+    this.genre = element.genre,
+    this.platform = element.platform,  
+    this.game_url = element.game_url,
+    this.publisher = element.publisher 
   }
 }
 

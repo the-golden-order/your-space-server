@@ -1,7 +1,7 @@
 'use strict';
 
 const mongoose = require('mongoose');
-mongoose.connect(process.env.DB_GAME_URL);
+mongoose.connect(process.env.DB_URL);
 const gameSchema = require('../models/game');
 const express = require("express");
 const app = express();
